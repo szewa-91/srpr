@@ -1,25 +1,13 @@
 /target/
+/src/main/resources/static/index.html
+/src/main/resources/static/favicon.ico
+/src/main/resources/static/css
+/src/main/resources/static/img
+/src/main/resources/static/js
 !.mvn/wrapper/maven-wrapper.jar
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/build/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
