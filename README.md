@@ -4,11 +4,11 @@
 
 ## Requirements
 To run the project, you need to install and run an SQL server. The most common (and advised) solution is MySQL 
-([get from website](https://www.mysql.com/downloads/) or download using your package manager.
+([get from website](https://www.mysql.com/downloads/)) or download using your package manager.
 
-Then, you have to create a table (named for example `srpr`). Also create a user and grant him all privileges on this table
+Then, you have to create a table (named for example `srpr`). Also create a user and grant them all privileges on this table
 
-Provide details of a database and user in `application.properties` file (in `/src/main/resources`). 
+Provide details of the database and the user in `application.properties` file (in `/src/main/resources`). 
 
 ```
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
@@ -33,5 +33,5 @@ mvn spring-boot:run
 ```
 
 ### Run frontend separately
-To run frontend in development mode go to `/src/main/vue` directory and run `npm install` and `npm serve`. 
+To run frontend in development mode go to `/src/main/vue` directory and run `npm install` and `npm run serve`. 
 It will enable hot reload.
