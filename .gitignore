@@ -11,3 +11,7 @@
 *.iws
 *.iml
 *.ipr
+
+### Front end
+/src/main/vue/node_modules
+/src/main/vue/dist
