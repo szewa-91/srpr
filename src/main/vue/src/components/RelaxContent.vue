@@ -1,21 +1,20 @@
 <template>
   <div class="relax-content">
       <p>{{ msg }}</p>
-      <p v-if="clickCount > 0">Kliknąłeś już {{ clickConut }} razy.</p>
-      <img src="../assets/images/zuk.jpg" class="bg-img" @click="clickConut">
+      <SoundTile name="Las" imgPath="assets/images/las.jpg"></SoundTile>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import SoundTile from '@/components/SoundTile.vue';
 
-@Component
+@Component({
+  components: {SoundTile,},
+})
 export default class RelaxContent extends Vue {
   @Prop() private msg!: string;
 
-  private clickCount(): void {
-    console.log('halo halo');
-  }
 }
 </script>
 
