@@ -1,7 +1,7 @@
 <template>
   <div class="relax">
     <h1>Tutaj piloci będą się relaksować. Arghhh!!!</h1>
-    <RelaxContent msg="Ale słodziutki żuczek!" />
+    <RelaxContent msg="Wybierz dźwięk" />
   </div>
 </template>
 
