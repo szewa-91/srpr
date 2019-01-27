@@ -6,7 +6,7 @@
 To run the project, you need to install and run an SQL server. The most common (and advised) solution is MySQL 
 ([get from website](https://www.mysql.com/downloads/)) or download using your package manager.
 
-Then, you have to create a table (named for example `srpr`). Also create a user and grant them all privileges on this table
+Then, you have to create a database (named for example `srpr`). Also create a user and grant them all privileges on this database.
 
 Provide file `db.properties` (in `/src/main/resources`) with details of the database and the user. 
 
