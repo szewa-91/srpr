@@ -4,6 +4,7 @@
 /src/main/resources/static/css
 /src/main/resources/static/img
 /src/main/resources/static/js
+/src/main/resources/db.properties
 !.mvn/wrapper/maven-wrapper.jar
 
 ### IntelliJ IDEA ###
