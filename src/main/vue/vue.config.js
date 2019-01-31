@@ -9,6 +9,7 @@ module.exports = {
           "/api": ""
         }
       },
-    }
+    },
+    port: 8888
   }
 }
