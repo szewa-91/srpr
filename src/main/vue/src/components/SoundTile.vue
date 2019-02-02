@@ -1,7 +1,7 @@
 <template>
   <div class="sound-content">
       <img :src="require(`@/${imgPath}`)" class="bg-img">
-      <h2>{{ name }}</h2>
+      <h1>{{ name }}</h1>
   </div>
 </template>
 
@@ -20,10 +20,11 @@ export default class SoundTile extends Vue {
 <style lang="scss">
 .sound-content {
   width: 32vw;
-  height: 33vh;
+  height: 20vw;
   position: relative;
   vertical-align: middle;
   text-align: center;
+  color: white;
 }
 .bg-img {
   max-width: 100%;
