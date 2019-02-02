@@ -38,7 +38,7 @@ You can add some more properties to decide how the application should handle dat
 `spring.jpa.hibernate.ddl-auto=create` - create schema on startup
 `spring.datasource.initialization-mode=always` - initialize data on startup (taken from `data.sql`)
 
-You can add those properties do your db.properties file or execute once only when running application:
+You can add those properties to your db.properties file or execute once only when running application:
 
 ```
 mvn spring-boot:run -D<property_name>=<property_value>
