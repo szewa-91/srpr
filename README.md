@@ -33,16 +33,16 @@ mvn spring-boot:run
 ```
 
 ### Init db on run
-On default, the application will only create the schema of database if not yet created. 
-However, there is the file named `data.sql` (in `/src/main/resources`) containing some initial inserts.
+You can add some more properties to decide how the application should handle database initialization:
+ 
+`spring.jpa.hibernate.ddl-auto=create` - create schema on startup
+`spring.datasource.initialization-mode=always` - initialize data on startup (taken from `data.sql`)
 
-You can run it during start of the application executing:
+You can add those properties do your db.properties file or execute once only when running application:
 
 ```
-mvn spring-boot:run -Dspring.datasource.initialization-mode=always
+mvn spring-boot:run -D<property_name>=<property_value>
 ```
-
-You can also achieve the same by adding the property: `spring.datasource.initialization-mode=always` into `application.properties` file
 
 Be aware that this command can overwrite your changes in database.
 
