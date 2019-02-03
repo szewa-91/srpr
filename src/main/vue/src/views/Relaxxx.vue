@@ -1,7 +1,6 @@
 <template>
   <div class="relax">
     <h1>Tutaj piloci będą się relaksować. Arghhh!!!</h1>
-    <button v-on:click="fetchCategories">Fecz</button>
     <RelaxContent msg="Wybierz dźwięk" v-bind:categories="categories"/>
   </div>
 </template>
@@ -10,27 +9,32 @@
   import { Component, Vue } from 'vue-property-decorator';
   import RelaxContent from '@/components/RelaxContent.vue'; // @ is an alias to /src
 
+  import { Category } from '@/models/CategoryModel.ts';
+
   @Component({
     components: {
       RelaxContent,
     },
   })
   export default class Relaxxx extends Vue {
-    private categories: any[] = [];
+    private categories: Category[] = [];
 
     public created(): void {
       this.fetchCategories();
     }
 
+    private stripOverhead(data: any) {
+      return data['_embedded']['categories'];
+    } 
+
     public fetchCategories() {
-      console.log('fetching...');
       fetch('/api/categories')
           .then(res => res.json())
-          .then(res => res['_embedded'])
-          .then((res) => {
-            this.categories = res['categories'];
-          });
-    }
+          .then(res => {
+            this.categories = Category.fromArray(this.stripOverhead(res));
+          })
+          .catch(err => console.error(err));
+    };
 
 
   }

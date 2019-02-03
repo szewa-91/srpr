@@ -6,6 +6,7 @@
           v-for="c in categories"
           v-bind:name="c.name"
           v-bind:imgPath="`assets/images/${c.icon}`"
+          v-bind:key="c.name"
       />
     </div>
   </div>
@@ -14,6 +15,8 @@
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import SoundTile from '@/components/SoundTile.vue';
+  
+  import { Category } from '@/models/CategoryModel.ts';
 
   @Component({
     components: { SoundTile },
@@ -21,7 +24,7 @@
   export default class RelaxContent extends Vue {
 
     @Prop() private msg!: string;
-    @Prop() private categories!: any[];
+    @Prop() private categories!: Category[];
   }
 </script>
 
