@@ -9,7 +9,7 @@
   import { Component, Vue } from 'vue-property-decorator';
   import RelaxContent from '@/components/RelaxContent.vue'; // @ is an alias to /src
 
-  import { Category } from '@/models/CategoryModel.ts';
+  import { Category } from '@/models/Category.ts';
 
   @Component({
     components: {
@@ -23,19 +23,18 @@
       this.fetchCategories();
     }
 
-    private stripOverhead(data: any) {
-      return data['_embedded']['categories'];
-    } 
-
     public fetchCategories() {
       fetch('/api/categories')
           .then(res => res.json())
           .then(res => {
-            this.categories = Category.fromArray(this.stripOverhead(res));
+            this.categories = this.stripOverhead(res).map((r: any) => new Category(r));
           })
           .catch(err => console.error(err));
-    };
+    }
 
-
+    private stripOverhead(data: any) {
+      return data['_embedded']['categories'];
+    } 
   }
+
 </script>

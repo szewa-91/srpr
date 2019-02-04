@@ -16,7 +16,7 @@
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import SoundTile from '@/components/SoundTile.vue';
   
-  import { Category } from '@/models/CategoryModel.ts';
+  import { Category } from '@/models/Category.ts';
 
   @Component({
     components: { SoundTile },
