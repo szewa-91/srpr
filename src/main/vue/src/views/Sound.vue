@@ -1,19 +1,20 @@
 <template>
-  <h1>Będzie dźwięk</h1>
+  <div>
+    <h1>Będzie dźwięk</h1>
+    <h2> O taki: {{ getCurrentSound }}</h2>
+  </div>
 </template>
 
 <script lang="ts">
-  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { Component, Vue } from 'vue-property-decorator';
+  import { mapGetters } from 'vuex';
 
-  import { Category } from '@/models/Category.ts';
 
   @Component({
-    components: {
+    computed: {
+      ...mapGetters(['getCurrentSound']),
     },
   })
-  export default class Relaxxx extends Vue {
-    @Prop() private category!: Category;
-
-  }
+  export default class Relaxxx extends Vue { }
 
 </script>

@@ -7,15 +7,22 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { mapActions } from 'vuex';
 
-@Component
+@Component({
+  methods: {
+    ...mapActions([
+      'setCurrentSound'
+    ]),
+  },
+})
 export default class SoundTile extends Vue {
 
   @Prop() private name!: string;
   @Prop() private imgPath!: string;
 
   public onClick() {
-    console.log(`Żeś kliknął ${this.name}.`);
+    this.setCurrentSound(this.name);
     this.$router.push('sound');
   }
 
