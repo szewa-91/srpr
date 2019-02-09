@@ -1,7 +1,7 @@
 <template>
-  <div class="sound-content">
-      <img :src="require(`@/${imgPath}`)" class="bg-img">
-      <h1>{{ name }}</h1>
+  <div class="sound-content" v-on:click="onClick">
+    <img :src="require(`@/${imgPath}`)" class="bg-img">
+    <h1>{{ name }}</h1>
   </div>
 </template>
 
@@ -14,6 +14,11 @@ export default class SoundTile extends Vue {
   @Prop() private name!: string;
   @Prop() private imgPath!: string;
 
+  public onClick() {
+    console.log(`Żeś kliknął ${this.name}.`);
+    this.$router.push('sound');
+  }
+
 }
 </script>
 
@@ -25,6 +30,7 @@ export default class SoundTile extends Vue {
   vertical-align: middle;
   text-align: center;
   color: white;
+  cursor: pointer;
 }
 .bg-img {
   max-width: 100%;

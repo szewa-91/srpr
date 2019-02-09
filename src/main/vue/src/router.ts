@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Relaxxx from './views/Relaxxx.vue';
+import Sound from './views/Sound.vue';
 
 Vue.use(Router);
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/relax',
       name: 'relax',
       component: Relaxxx,
+    },
+    {
+      path: '/sound',
+      name: 'sound',
+      component: Sound,
     },
   ],
 });
