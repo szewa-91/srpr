@@ -1,6 +1,5 @@
 package com.srprargh.srprargh.rest;
 
-import java.util.Optional;
 import com.srprargh.srprargh.model.Category;
 import com.srprargh.srprargh.model.Sound;
 import com.srprargh.srprargh.repositories.CategoryRepository;
@@ -32,7 +31,7 @@ public class CategoryRestService {
     }
 
     @GetMapping("/{id}/sounds")
-    public ResponseEntity<Collection> getSoundsByCategory(@PathVariable Long id) {
+    public ResponseEntity<Collection<Sound>> getSoundsByCategory(@PathVariable Long id) {
         return ResponseEntity.ok(soundRepository.findByCategory(categoryRepository.findById(id).get()));
     }
 }
