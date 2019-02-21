@@ -15,6 +15,6 @@
       ...mapGetters(['getCurrentSound']),
     },
   })
-  export default class Relaxxx extends Vue { }
+  export default class Category extends Vue { }
 
 </script>

@@ -16,14 +16,14 @@ import { mapActions } from 'vuex';
     ]),
   },
 })
-export default class SoundTile extends Vue {
+export default class CategoryTile extends Vue {
 
   @Prop() private name!: string;
   @Prop() private imgPath!: string;
 
   public onClick() {
     this.setCurrentSound(this.name);
-    this.$router.push('sound');
+    this.$router.push('category');
   }
 
 }
