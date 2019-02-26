@@ -1,20 +1,19 @@
 <template>
   <div>
     <h1>Będzie dźwięk</h1>
-    <h2> O taki: {{ getCurrentSound }}</h2>
+    <h2> O z takiej kategorii: {{ currentSound.category }}</h2>
   </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { mapGetters } from 'vuex';
+  import { Getter } from 'vuex-class';
+  import { Sound } from '@/store/sound/types';
+  const namespace: string = 'sound';
 
-
-  @Component({
-    computed: {
-      ...mapGetters(['getCurrentSound']),
-    },
-  })
-  export default class Category extends Vue { }
+  @Component
+  export default class Category extends Vue { 
+    @Getter('currentSound', { namespace }) private currentSound!: Sound;
+  }
 
 </script>

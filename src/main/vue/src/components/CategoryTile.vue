@@ -7,22 +7,22 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { mapActions } from 'vuex';
+import { Action, State } from 'vuex-class';
+import { SoundState, Sound } from '@/store/sound/types';
+const namespace: string = 'sound';
 
-@Component({
-  methods: {
-    ...mapActions([
-      'setCurrentSound'
-    ]),
-  },
-})
+@Component
 export default class CategoryTile extends Vue {
+
+  @State('sound') private sound!: SoundState;
+  @Action('setCurrentSound', { namespace }) private setCurrentSound: any;
 
   @Prop() private name!: string;
   @Prop() private imgPath!: string;
 
+
   public onClick() {
-    this.setCurrentSound(this.name);
+    this.setCurrentSound({name: 'lolol', category: this.name} as Sound);
     this.$router.push('category');
   }
 
