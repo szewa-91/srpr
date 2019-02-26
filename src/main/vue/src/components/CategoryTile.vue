@@ -22,8 +22,8 @@ export default class CategoryTile extends Vue {
 
 
   public onClick() {
-    this.setCurrentSound({name: 'lolol', category: this.name} as Sound);
-    this.$router.push('category');
+    this.setCurrentSound({name: this.name + '-dźwięk', category: this.name} as Sound);
+    this.$router.push(`category/${this.name}`);
   }
 
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Będzie dźwięk</h1>
-    <h2> O z takiej kategorii: {{ currentSound.category }}</h2>
+    <h1>Będzie dźwięk z kategorii {{ $route.params.id }}</h1>
+    <h2> O z taki: {{ currentSound.name }}</h2>
   </div>
 </template>
 

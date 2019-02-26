@@ -27,7 +27,7 @@ export default new Router({
       component: Relaxxx,
     },
     {
-      path: '/category',
+      path: '/category/:id',
       name: 'category',
       component: Category,
     },
