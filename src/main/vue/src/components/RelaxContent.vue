@@ -2,7 +2,7 @@
   <div class="relax-content">
     <p>{{ msg }}</p>
     <div class="sound-tiles">
-      <SoundTile
+      <CategoryTile
           v-for="c in categories"
           v-bind:name="c.name"
           v-bind:imgPath="`assets/images/${c.icon}`"
@@ -14,12 +14,12 @@
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
-  import SoundTile from '@/components/SoundTile.vue';
+  import CategoryTile from '@/components/CategoryTile.vue';
   
   import { Category } from '@/models/Category.ts';
 
   @Component({
-    components: { SoundTile },
+    components: { CategoryTile },
   })
   export default class RelaxContent extends Vue {
 
