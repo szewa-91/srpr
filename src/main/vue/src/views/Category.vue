@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Będzie dźwięk z kategorii {{ $route.params.id }}</h1>
+    <h1>Będzie dźwięk z kategorii {{ $route.params.name }}</h1>
     <h2> O z taki: {{ currentSound.name }}</h2>
   </div>
 </template>
@@ -12,8 +12,14 @@
   const namespace: string = 'sound';
 
   @Component
-  export default class Category extends Vue { 
+  export default class Category extends Vue {
     @Getter('currentSound', { namespace }) private currentSound!: Sound;
+
+    created() {
+      if (!this.currentSound) {
+        this.$router.push('/relax')
+      }
+    }
   }
 
 </script>

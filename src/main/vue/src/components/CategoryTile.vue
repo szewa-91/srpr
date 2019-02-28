@@ -8,18 +8,16 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Action, State } from 'vuex-class';
-import { SoundState, Sound } from '@/store/sound/types';
+import { Sound } from '@/store/sound/types';
 const namespace: string = 'sound';
 
 @Component
 export default class CategoryTile extends Vue {
 
-  @State('sound') private sound!: SoundState;
   @Action('setCurrentSound', { namespace }) private setCurrentSound: any;
 
   @Prop() private name!: string;
   @Prop() private imgPath!: string;
-
 
   public onClick() {
     this.setCurrentSound({name: this.name + '-dźwięk', category: this.name} as Sound);
