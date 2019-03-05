@@ -1,21 +1,24 @@
 export interface Category {
-    name: string;
+    background?: string;
+    description?: string;
     icon: string;
     id: number;
-    description?: string;
-    background?: string;
+    name: string;
+    sounds: Sound[];
 }
 
 export interface Sound {
-    name: string;
-    category: number;
-    description: string;
-    soundFile: string;
     background: string;
+    category: Category;
+    description: string;
+    icon: string;
+    id: number;
+    name: string;
+    soundFile: string;
 }
 
 export interface SoundState {
     category?: Category;
-    sound?: Sound;
     playing: boolean;
+    sound?: Sound;
 }
