@@ -1,27 +1,27 @@
 <template>
   <div class="sound-content" v-on:click="onClick">
     <img :src="require(`@/${imgPath}`)" class="bg-img">
-    <h1>{{ name }}</h1>
+    <h1>{{ category.name }}</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Action, State } from 'vuex-class';
-import { Sound } from '@/store/sound/types';
+import { Sound, Category } from '@/store/sound/types';
 const namespace: string = 'sound';
 
 @Component
 export default class CategoryTile extends Vue {
 
-  @Action('setCurrentSound', { namespace }) private setCurrentSound: any;
+  @Action('setCurrentCategory', { namespace }) private setCurrentCategory: any;
 
-  @Prop() private name!: string;
+  @Prop() private category!: Category;
   @Prop() private imgPath!: string;
 
   public onClick() {
-    this.setCurrentSound({name: this.name + '-dźwięk', category: this.name} as Sound);
-    this.$router.push(`category/${this.name}`);
+    this.setCurrentCategory(this.category);
+    this.$router.push(`category/${this.category.name}`);
   }
 
 }

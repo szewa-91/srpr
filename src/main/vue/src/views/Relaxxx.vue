@@ -8,8 +8,8 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import RelaxContent from '@/components/RelaxContent.vue'; // @ is an alias to /src
+  import { Category } from '@/store/sound/types';
 
-  import { Category } from '@/models/Category.ts';
 
   @Component({
     components: {
@@ -27,7 +27,11 @@
       fetch('/api/categories')
           .then(res => res.json())
           .then(res => {
-            this.categories = this.stripOverhead(res).map((r: any) => new Category(r));
+            this.categories = this.stripOverhead(res).map((r: any) => {
+              const category = r as Category;
+              category.id = r._links.category.href.slice(-1);
+              return category;
+            });
           })
           .catch(err => console.error(err));
     }

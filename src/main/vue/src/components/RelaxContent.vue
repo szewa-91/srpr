@@ -3,10 +3,10 @@
     <p>{{ msg }}</p>
     <div class="sound-tiles">
       <CategoryTile
-          v-for="c in categories"
-          v-bind:name="c.name"
-          v-bind:imgPath="`assets/images/${c.icon}`"
-          v-bind:key="c.name"
+        v-for="c in categories"
+        v-bind:category="c"
+        v-bind:imgPath="`assets/images/${c.icon}`"
+        v-bind:key="c.name"
       />
     </div>
   </div>
@@ -15,8 +15,8 @@
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import CategoryTile from '@/components/CategoryTile.vue';
+  import { Category } from '@/store/sound/types';
   
-  import { Category } from '@/models/Category.ts';
 
   @Component({
     components: { CategoryTile },
