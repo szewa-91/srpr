@@ -7,6 +7,10 @@ export const getters: GetterTree<SoundState, RootState> = {
         const { category } = state;
         return category;
     },
+    currentSounds(state): any {
+        const { sounds } = state;
+        return sounds;
+    },
     currentSound(state): any {
         const { sound } = state;
         return sound;

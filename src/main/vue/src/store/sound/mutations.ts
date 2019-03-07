@@ -9,11 +9,7 @@ export const mutations: MutationTree<SoundState> = {
         state.sound = sound;
     },
     soundsFetched(state, sounds: Sound[]) {
-        if (state.category) {
-            state.category.sounds = sounds;
-        } else {
-            console.error('Category undefined!');
-        }
+        state.sounds = sounds;
     },
     soundPlayed(state) {
         state.playing = true;

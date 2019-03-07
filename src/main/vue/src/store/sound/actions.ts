@@ -5,13 +5,17 @@ import { RootState } from '../types';
 
 export const actions: ActionTree<SoundState, RootState> = {
   fetchSounds({ commit, state }): any {
-    fetch(`/api/categories/${state.category.id}/sounds`)
-      .then(res => res.json())
-      .then(sounds => {
-        const fetchedSounds: Sound[] = [];
-        sounds.forEach((s: any) => fetchedSounds.push(s as Sound));
-        commit('soundsFetched', fetchedSounds);
-      });
+    if (state.category) {
+      fetch(`/api/categories/${state.category.id}/sounds`)
+        .then(res => res.json())
+        .then(sounds => {
+          const fetchedSounds: Sound[] = [];
+          sounds.forEach((s: any) => fetchedSounds.push(s as Sound));
+          commit('soundsFetched', fetchedSounds);
+        });
+    } else {
+      console.error('Category is undefined!');
+    }
   },
   setCurrentCategory({ commit }, category: Category): any {
     commit('categoryChosen', category);

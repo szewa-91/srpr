@@ -19,6 +19,7 @@ export interface Sound {
 
 export interface SoundState {
     category?: Category;
+    sounds?: Sound[];
     playing: boolean;
     sound?: Sound;
 }

@@ -7,6 +7,7 @@ import { RootState } from '../types';
 
 export const state: SoundState = {
     category: undefined,
+    sounds: undefined,
     sound: undefined,
     playing: false,
 };
