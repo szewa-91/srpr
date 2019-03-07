@@ -4,24 +4,20 @@ import { RootState } from '../types';
 
 
 export const actions: ActionTree<SoundState, RootState> = {
-  fetchSounds({ commit, state }): any {
-    if (state.category) {
-      fetch(`/api/categories/${state.category.id}/sounds`)
-        .then(res => res.json())
-        .then(sounds => {
-          const fetchedSounds: Sound[] = [];
-          sounds.forEach((s: any) => fetchedSounds.push(s as Sound));
-          commit('soundsFetched', fetchedSounds);
+  fetchCategories({ commit }): any {
+    fetch('/api/categories')
+      .then(res => res.json())
+      .then(res => {
+        const categories = stripOverhead(res).map((r: any) => {
+          const category = r as Category;
+          category.id = r._links.category.href.slice(-1);
+          return category;
         });
-    } else {
-      console.error('Category is undefined!');
-    }
-  },
-  setCurrentCategory({ commit }, category: Category): any {
-    commit('categoryChosen', category);
-  },
-  setCurrentSound({ commit }, sound: Sound): any {
-    commit('soundChosen', sound);
+        commit('categoriesFetched', categories);
+      })
+      .catch(err => console.error(err));
+
+    const stripOverhead = (data: any) => (data['_embedded']['categories']);
   },
   play({ commit }): any {
     commit('soundPlayed');

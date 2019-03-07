@@ -3,17 +3,13 @@ import { SoundState } from './types';
 import { RootState } from '../types';
 
 export const getters: GetterTree<SoundState, RootState> = {
-    currentCategory(state): any {
-        const { category } = state;
-        return category;
+    categories(state): any {
+        const { categories } = state;
+        return categories;
     },
-    currentSounds(state): any {
-        const { sounds } = state;
-        return sounds;
-    },
-    currentSound(state): any {
-        const { sound } = state;
-        return sound;
+    sounds(state, categoryId): any {
+        // TODO: get sounds of a specific category
+        return [];
     },
     nowPlaying(state): boolean {
         const { playing } = state;

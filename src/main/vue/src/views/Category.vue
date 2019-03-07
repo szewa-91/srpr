@@ -1,13 +1,12 @@
 <template>
   <div>
     <h1>Dźwięki z kategorii {{ $route.params.name }}</h1>
+    Tu się dźwięki zaczynają
     <p
-      v-for="s in currentSounds"
+      v-for="s in sounds"
       v-bind:key="s.name"
     >{{ s.name }}</p>
-    cos sie spierniczylo
-    {{ currentSounds }}
-    ale nie wiem co
+    A tu się kończą
   </div>
 </template>
 
@@ -19,14 +18,7 @@
 
   @Component
   export default class CategoryComponent extends Vue {
-    @Getter('currentSounds', { namespace }) currentSounds!: Sound[];
-
-    public mounted() {
-      console.log('After creation:', this.currentSounds);
-    }
-    public beforeDestroy() {
-      console.log('Before destruction:', this.currentSounds);
-    }
+    @Getter('sounds', { namespace }) private sounds!: Sound[];
   }
 
 </script>
