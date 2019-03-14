@@ -14,15 +14,10 @@ const namespace: string = 'sound';
 @Component
 export default class CategoryTile extends Vue {
 
-  @Action('setCurrentCategory', { namespace }) private setCurrentCategory: any;
-  @Action('fetchSounds', { namespace }) private fetchSounds: any;
-
   @Prop() private category!: Category;
   @Prop() private imgPath!: string;
 
   public onClick() {
-    this.setCurrentCategory(this.category);
-    this.fetchSounds();
     this.$router.push(`category/${this.category.name}`);
   }
 
