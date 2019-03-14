@@ -9,7 +9,6 @@ export interface Category {
 
 export interface Sound {
     background: string;
-    category: Category;
     description: string;
     icon: string;
     id: number;

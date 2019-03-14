@@ -7,15 +7,16 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import RelaxContent from '@/components/RelaxContent.vue'; // @ is an alias to /src
+  import RelaxContent from '@/components/RelaxContent.vue';
   import { Category } from '@/store/sound/types';
   import { Action, Getter } from 'vuex-class';
+
   const namespace = 'sound';
 
 
   @Component({
     components: {
-      RelaxContent,
+      RelaxContent
     },
   })
   export default class Relaxxx extends Vue {

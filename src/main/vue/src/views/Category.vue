@@ -12,8 +12,9 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { Action, Getter, State } from 'vuex-class';
-  import { Sound, Category, SoundState } from '@/store/sound/types';
+  import { Getter } from 'vuex-class';
+  import { Sound } from '@/store/sound/types';
+
   const namespace: string = 'sound';
 
   @Component

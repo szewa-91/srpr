@@ -6,10 +6,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Action, State } from 'vuex-class';
-import { Sound, Category } from '@/store/sound/types';
-const namespace: string = 'sound';
+  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { Category, Sound } from '@/store/sound/types';
 
 @Component
 export default class CategoryTile extends Vue {
