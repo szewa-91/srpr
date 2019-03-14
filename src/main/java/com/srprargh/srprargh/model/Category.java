@@ -1,13 +1,12 @@
 package com.srprargh.srprargh.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 public class Category implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +16,9 @@ public class Category implements Serializable {
     private String description;
     private String icon;
     private String background;
+    @OneToMany
+    @JoinColumn(name = "category_id")
+    private Set<Sound> sounds;
 
     public Long getId() {
         return id;
@@ -56,5 +58,13 @@ public class Category implements Serializable {
 
     public void setBackground(String background) {
         this.background = background;
+    }
+
+    public Set<Sound> getSounds() {
+        return sounds;
+    }
+
+    public void setSounds(Set<Sound> sounds) {
+        this.sounds = sounds;
     }
 }

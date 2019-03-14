@@ -14,24 +14,26 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/api")
 public class CategoryRestService {
     private CategoryRepository categoryRepository;
     private SoundRepository soundRepository;
 
     @Autowired
-    public CategoryRestService(CategoryRepository categoryRepository,SoundRepository soundRepository) {
+    public CategoryRestService(CategoryRepository categoryRepository, SoundRepository soundRepository) {
         this.categoryRepository = categoryRepository;
         this.soundRepository = soundRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping("/categories")
     public ResponseEntity<Collection<Category>> getAllCategories() {
         return ResponseEntity.ok(categoryRepository.findAll());
     }
 
-    @GetMapping("/{id}/sounds")
+    @GetMapping("/categories/{id}/sounds")
     public ResponseEntity<Collection<Sound>> getSoundsByCategory(@PathVariable Long id) {
-        return ResponseEntity.ok(soundRepository.findByCategory(categoryRepository.findById(id).get()));
+        return categoryRepository.findById(id).map(
+                category -> ResponseEntity.ok(soundRepository.findByCategory(category))
+        ).orElse(ResponseEntity.notFound().build());
     }
 }
