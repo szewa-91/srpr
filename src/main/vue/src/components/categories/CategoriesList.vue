@@ -14,7 +14,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import CategoryTile from './CategoryTile';
+  import CategoryTile from './CategoryTile.vue';
   import { Category } from '../../store/categories/types';
   import { Action, Getter } from "vuex-class";
 
@@ -22,8 +22,8 @@
     components: { CategoryTile },
   })
   export default class CategoriesList extends Vue {
-    @Getter('categories', { namespace: 'categories'}) public categories!: Category[];
-    @Action('fetchCategories', { namespace: 'categories'}) private fetchCategories: any;
+    @Getter('categories', { namespace: 'categories' }) public categories!: Category[];
+    @Action('fetchCategories', { namespace: 'categories' }) private fetchCategories: any;
 
     public created(): void {
       if (!this.categories) {

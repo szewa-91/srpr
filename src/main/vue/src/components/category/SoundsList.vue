@@ -17,10 +17,11 @@
 
   @Component
   export default class SoundsList extends Vue {
-    @Prop() private categoryName: string;
-    @Getter('sounds', { namespace: 'categories' })
-    private getSounds: ((categoryName: string) => Sound[]);
+    @Prop() private categoryName!: string;
     private sounds!: Sound[];
+
+    @Getter('getSounds', { namespace: 'categories' })
+    private getSounds!: ((categoryName: string) => Sound[]);
 
     public created(): void {
       this.sounds = this.getSounds(this.categoryName)

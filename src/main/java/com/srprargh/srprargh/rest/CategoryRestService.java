@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/categories")
 public class CategoryRestService {
     private CategoryRepository categoryRepository;
     private SoundRepository soundRepository;
@@ -25,12 +25,12 @@ public class CategoryRestService {
         this.soundRepository = soundRepository;
     }
 
-    @GetMapping("/categories")
+    @GetMapping
     public ResponseEntity<Collection<Category>> getAllCategories() {
         return ResponseEntity.ok(categoryRepository.findAll());
     }
 
-    @GetMapping("/categories/{id}/sounds")
+    @GetMapping("/{id}/sounds")
     public ResponseEntity<Collection<Sound>> getSoundsByCategory(@PathVariable Long id) {
         return categoryRepository.findById(id).map(
                 category -> ResponseEntity.ok(soundRepository.findByCategory(category))
