@@ -4,7 +4,7 @@ import { RootState } from '../types';
 
 
 export const actions: ActionTree<SoundState, RootState> = {
-  fetchCategories: function ({commit}) {
+  fetchCategories: ({ commit }) => {
     fetch('/api/categories')
         .then(res => res.json() as Promise<Category[]>)
         .then(res => {

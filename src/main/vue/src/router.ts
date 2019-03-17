@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
-import Relaxxx from './views/Relaxxx.vue';
-import CategoryComponent from './views/Category.vue';
+import CategoriesView from './views/CategoriesView.vue';
+import CategoryView from './views/CategoryView.vue';
 
 Vue.use(Router);
 
@@ -10,8 +9,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'categories',
+      component: CategoriesView,
+    },
+    {
+      path: '/category/:name',
+      name: 'category',
+      component: CategoryView,
     },
     {
       path: '/about',
@@ -19,17 +23,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    },
-    {
-      path: '/relax',
-      name: 'relax',
-      component: Relaxxx,
-    },
-    {
-      path: '/category/:name',
-      name: 'category',
-      component: CategoryComponent,
+      component: () => import(/* webpackChunkName: "about" */ './views/AboutView.vue'),
     },
   ],
 });

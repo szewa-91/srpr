@@ -10,9 +10,10 @@ export const state: SoundState = {
     playing: false,
 };
 
+
 const namespaced: boolean = true;
 
-export const sound: Module<SoundState, RootState> = {
+export const categories: Module<SoundState, RootState> = {
     namespaced,
     state,
     getters,

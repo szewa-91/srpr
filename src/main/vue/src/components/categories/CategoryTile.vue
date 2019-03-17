@@ -7,9 +7,9 @@
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
-  import { Category, Sound } from '@/store/sound/types';
+  import { Category } from '../../store/categories/types';
 
-@Component
+  @Component
 export default class CategoryTile extends Vue {
 
   @Prop() private category!: Category;
@@ -18,7 +18,6 @@ export default class CategoryTile extends Vue {
   public onClick() {
     this.$router.push(`category/${this.category.name}`);
   }
-
 }
 </script>
 
