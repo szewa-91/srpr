@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
-  import { Category } from '../../store/categories/types';
+  import { Category } from '@/store/categories/types';
 
   @Component
   export default class CategoryTile extends Vue {

@@ -10,10 +10,10 @@ export const getters: GetterTree<SoundState, RootState> = {
     return (categoryName: string) => {
       const { categories } = state;
       if (categories) {
-        const filteredCategories = categories.filter(category => category.name === categoryName);
-        return filteredCategories.length > 0 ? filteredCategories[0].sounds : [];
+        const filteredCategory = categories.find(category => category.name === categoryName);
+        return filteredCategory!.sounds || [];
       }
-    }
+    };
   },
   nowPlaying(state): boolean {
     const { playing } = state;
