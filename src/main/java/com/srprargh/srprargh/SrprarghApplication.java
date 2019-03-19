@@ -11,11 +11,5 @@ public class SrprarghApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SrprarghApplication.class, args);
 	}
-
-	@PostConstruct
-	public void initApplication() {
-
-	}
-
 }
 

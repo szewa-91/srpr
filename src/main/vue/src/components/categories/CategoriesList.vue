@@ -1,10 +1,10 @@
 <template>
   <div class="relax-content">
-    <p>{{ msg }}</p>
+    <h3>Kategorie</h3>
     <div class="sound-tiles">
       <CategoryTile
           v-for="c in categories"
-          v-bind:name="c.name"
+          v-bind:category="c"
           v-bind:imgPath="`assets/images/${c.icon}`"
           v-bind:key="c.name"
       />
@@ -13,18 +13,23 @@
 </template>
 
 <script lang="ts">
-  import { Component, Prop, Vue } from 'vue-property-decorator';
-  import CategoryTile from '@/components/CategoryTile.vue';
-  
-  import { Category } from '@/models/Category.ts';
+  import { Component, Vue } from 'vue-property-decorator';
+  import CategoryTile from './CategoryTile.vue';
+  import { Category } from '../../store/categories/types';
+  import { Action, Getter } from "vuex-class";
 
   @Component({
     components: { CategoryTile },
   })
-  export default class RelaxContent extends Vue {
+  export default class CategoriesList extends Vue {
+    @Getter('categories', { namespace: 'categories' }) public categories!: Category[];
+    @Action('fetchCategories', { namespace: 'categories' }) private fetchCategories: any;
 
-    @Prop() private msg!: string;
-    @Prop() private categories!: Category[];
+    public created(): void {
+      if (!this.categories) {
+        this.fetchCategories();
+      }
+    }
   }
 </script>
 

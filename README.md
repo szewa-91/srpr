@@ -1,7 +1,5 @@
 # SRPRarghhh
 
-
-
 ## Database
 To run the project, you need to install and run an SQL server. The most common (and advised) solution is MySQL 
 ([get from website](https://www.mysql.com/downloads/)) or download using your package manager.
@@ -20,7 +18,6 @@ spring.jpa.hibernate.ddl-auto=create
 You can use default value for all fields: `srpr`. 
 
 You can use different SQL implementation, but then you have to provide your own configuration.
-
 
 ## Run the application
 ```

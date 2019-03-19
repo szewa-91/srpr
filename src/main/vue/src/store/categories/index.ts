@@ -6,13 +6,14 @@ import { SoundState } from './types';
 import { RootState } from '../types';
 
 export const state: SoundState = {
-    sound: undefined,
+    categories: undefined,
     playing: false,
 };
 
+
 const namespaced: boolean = true;
 
-export const sound: Module<SoundState, RootState> = {
+export const categories: Module<SoundState, RootState> = {
     namespaced,
     state,
     getters,
