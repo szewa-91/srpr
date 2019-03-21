@@ -1,16 +1,23 @@
 <template>
-  <div class="relax">
-    <h1>Tutaj piloci będą się relaksować. Arghhh!!!</h1>
-    <CategoriesList />
+  <div>
+    <div class="relax">
+      <h1>Tutaj piloci będą się relaksować. Arghhh!!!</h1>
+      <CategoriesList/>
+    </div>
+    <div>
+      <ControlPanel/>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import CategoriesList from '@/components/categories/CategoriesList.vue';
+  import ControlPanel from "@/components/control-panel/ControlPanel";
 
   @Component({
     components: {
+      ControlPanel,
       CategoriesList
     },
   })
