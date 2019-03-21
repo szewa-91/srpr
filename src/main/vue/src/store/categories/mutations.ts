@@ -1,14 +1,8 @@
 import { MutationTree } from 'vuex';
-import { SoundState, Category } from './types';
+import { CategoriesState, Category } from './types';
 
-export const mutations: MutationTree<SoundState> = {
+export const mutations: MutationTree<CategoriesState> = {
     categoriesFetched(state, categories: Category[]) {
         state.categories = categories;
-    },
-    soundPlayed(state) {
-        state.playing = true;
-    },
-    soundPaused(state) {
-        state.playing = false;
-    },
+    }
 };

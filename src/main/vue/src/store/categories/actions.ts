@@ -1,24 +1,14 @@
 import { ActionTree } from 'vuex';
-import { Category, SoundState } from './types';
+import { Category, CategoriesState } from './types';
 import { RootState } from '../types';
 
 
-export const actions: ActionTree<SoundState, RootState> = {
+export const actions: ActionTree<CategoriesState, RootState> = {
   fetchCategories: ({ commit }) => {
     fetch('/api/categories')
         .then(res => res.json() as Promise<Category[]>)
-        .then(res => {
-          const categories = stripOverhead(res).map((r: any) => r as Category);
-          commit('categoriesFetched', categories);
-        })
+        .then(res => commit('categoriesFetched', res))
         .catch(err => console.error(err));
 
-    const stripOverhead = (data: any) => (data);
-  },
-  play({ commit }): any {
-    commit('soundPlayed');
-  },
-  pause({ commit }): any {
-    commit('soundPaused');
-  },
+  }
 };
