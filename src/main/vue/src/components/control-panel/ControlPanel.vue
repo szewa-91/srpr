@@ -1,18 +1,19 @@
 <template>
   <div id="bottom">
-    <div v-if="playingFile">
-      <p>Currently playing: {{playingFile}}</p>
-      <button v-on:click="onPauseClick">Stop!</button>
+    <div v-if="playingFile" id="display">
+      <button v-on:click="onClick" v-bind:class="[playing ? {pause} : {play}]"></button>
+      <!-- <button v-on:click="onClick" class="play"></button> -->
+      <p>{{playingFile}}</p>
     </div>
     <div v-else>
-      <p>Nothing is playing :-(</p>
+      <p>No sound chosen :-(</p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { Action, Getter } from 'vuex-class';
+  import { Action, Getter, State } from 'vuex-class';
 
   @Component
   export default class ControlPanel extends Vue {
@@ -20,9 +21,16 @@
     private playingFile!: string;
     @Action('pause', { namespace: 'playing' })
     private pause: any;
+    @Action('play', { namespace: 'playing' })
+    private play: any;
+    @State('playing', { namespace: 'playing'}) private playing!: boolean;
 
-    private onPauseClick() {
-      this.pause();
+    private onClick() {
+      if (this.playing) {
+        this.pause();
+      } else {
+        this.play();
+      }
     }
   }
 </script>
@@ -33,7 +41,25 @@
   width: 100%;
   bottom: 0;
   box-shadow: 0px 0px 10px 0px #888888;
-  text-align: center;
   background: white;
+}
+#display {
+  display: flex;
+  justify-content: center;
+}
+.play {
+  width: 74px;
+  height: 74px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-width: 37px 0px 37px 74px;
+  border-color: transparent transparent transparent #202020;
+}
+.pause {
+  width: 74px;
+  height: 74px;
+  border-width: 0px 0px 0px 37px;
+  border-color: #202020;
+  border-style: double;
 }
 </style>
