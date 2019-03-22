@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="bottom">
     <div v-if="playingFile">
       <p>Currently playing: {{playingFile}}</p>
       <button v-on:click="onPauseClick">Stop!</button>
@@ -28,4 +28,12 @@
 </script>
 
 <style lang="scss">
+#bottom {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  box-shadow: 0px 0px 10px 0px #888888;
+  text-align: center;
+  background: white;
+}
 </style>
