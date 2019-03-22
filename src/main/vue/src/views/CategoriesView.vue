@@ -13,12 +13,12 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import CategoriesList from '@/components/categories/CategoriesList.vue';
-  import ControlPanel from "@/components/control-panel/ControlPanel";
+  import ControlPanel from '@/components/control-panel/ControlPanel.vue';
 
   @Component({
     components: {
+      CategoriesList,
       ControlPanel,
-      CategoriesList
     },
   })
   export default class CategoriesView extends Vue {

@@ -12,7 +12,7 @@ const store: StoreOptions<RootState> = {
   },
   modules: {
     categories,
-    playing
+    playing,
   },
 };
 

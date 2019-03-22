@@ -12,7 +12,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { Action, Getter } from "vuex-class";
+  import { Action, Getter } from 'vuex-class';
 
   @Component
   export default class ControlPanel extends Vue {
@@ -21,7 +21,7 @@
     @Action('pause', { namespace: 'playing' })
     private pause: any;
 
-    onPauseClick() {
+    private onPauseClick() {
       this.pause();
     }
   }

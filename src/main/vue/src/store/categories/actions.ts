@@ -10,5 +10,5 @@ export const actions: ActionTree<CategoriesState, RootState> = {
         .then(res => commit('categoriesFetched', res))
         .catch(err => console.error(err));
 
-  }
+  },
 };

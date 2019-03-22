@@ -1,6 +1,6 @@
-import { ActionTree } from "vuex";
-import { RootState } from "@/store/types";
-import { PlayingState } from "@/store/playing/types";
+import { ActionTree } from 'vuex';
+import { RootState } from '@/store/types';
+import { PlayingState } from '@/store/playing/types';
 
 export const actions: ActionTree<PlayingState, RootState> = {
   play({ commit }): any {

@@ -14,5 +14,5 @@ export const getters: GetterTree<CategoriesState, RootState> = {
         return filteredCategory!.sounds || [];
       }
     };
-  }
+  },
 };

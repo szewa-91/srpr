@@ -8,12 +8,12 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import SoundsList from '@/components/category/SoundsList.vue';
-  import ControlPanel from "@/components/control-panel/ControlPanel";
+  import ControlPanel from '@/components/control-panel/ControlPanel.vue';
 
   @Component({
     components: {
+      ControlPanel,
       SoundsList,
-      ControlPanel
     },
   })
   export default class CategoryView extends Vue {

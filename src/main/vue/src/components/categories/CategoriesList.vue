@@ -15,8 +15,8 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import CategoryTile from './CategoryTile.vue';
-  import { Category } from '../../store/categories/types';
-  import { Action, Getter } from "vuex-class";
+  import { Category } from '@/store/categories/types';
+  import { Action, Getter } from 'vuex-class';
 
   @Component({
     components: { CategoryTile },

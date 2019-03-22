@@ -29,7 +29,7 @@
     private setSound!: ((sound: string) => void);
 
     public created(): void {
-      this.sounds = this.getSounds(this.categoryName)
+      this.sounds = this.getSounds(this.categoryName);
     }
 
     public onClick(sound: Sound): void {

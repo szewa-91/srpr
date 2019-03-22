@@ -1,6 +1,6 @@
-import { GetterTree } from "vuex";
-import { PlayingState } from "@/store/playing/types";
-import { RootState } from "@/store/types";
+import { GetterTree } from 'vuex';
+import { PlayingState } from '@/store/playing/types';
+import { RootState } from '@/store/types';
 
 export const getters: GetterTree<PlayingState, RootState> = {
   playing(state): boolean {
@@ -8,5 +8,5 @@ export const getters: GetterTree<PlayingState, RootState> = {
   },
   file(state): string | undefined {
     return state.file;
-  }
+  },
 };
