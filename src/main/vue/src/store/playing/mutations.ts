@@ -9,6 +9,7 @@ export const mutations: MutationTree<PlayingState> = {
     }
     state.audioObject = new Audio(`/sound-files/${soundFile}`);
     state.file = soundFile;
+    state.audioObject.loop = true;
     state.audioObject.play().then(_ => { state.playing = true; });
   },
   soundPlayed(state) {
