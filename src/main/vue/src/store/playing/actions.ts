@@ -1,6 +1,7 @@
 import { ActionTree } from 'vuex';
 import { RootState } from '@/store/types';
 import { PlayingState } from '@/store/playing/types';
+import { Sound } from '../categories/types';
 
 export const actions: ActionTree<PlayingState, RootState> = {
   play({ commit }): any {
@@ -9,7 +10,7 @@ export const actions: ActionTree<PlayingState, RootState> = {
   pause({ commit }): any {
     commit('soundPaused');
   },
-  setSound({ commit }, soundFile: string): any {
-    commit('soundSet', soundFile);
+  setSound({ commit }, sound: Sound): any {
+    commit('soundSet', sound);
   },
 };

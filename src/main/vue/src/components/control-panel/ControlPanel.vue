@@ -1,9 +1,8 @@
 <template>
   <div id="bottom">
-    <div v-if="playingFile" id="display">
+    <div v-if="playingSound" id="display">
       <button v-on:click="onClick" v-bind:class="[playing ? {pause} : {play}]"></button>
-      <!-- <button v-on:click="onClick" class="play"></button> -->
-      <p>{{playingFile}}</p>
+      <p>{{playingSound.name}}</p>
     </div>
     <div v-else>
       <p>No sound chosen :-(</p>
@@ -14,11 +13,12 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { Action, Getter, State } from 'vuex-class';
+  import { Sound } from '@/store/categories/types';
 
   @Component
   export default class ControlPanel extends Vue {
-    @Getter('file', { namespace: 'playing' })
-    private playingFile!: string;
+    @Getter('sound', { namespace: 'playing' })
+    private playingSound!: Sound;
     @Action('pause', { namespace: 'playing' })
     private pause: any;
     @Action('play', { namespace: 'playing' })

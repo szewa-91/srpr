@@ -1,14 +1,15 @@
 import { MutationTree } from 'vuex';
 import { PlayingState } from '@/store/playing/types';
+import { Sound } from '../categories/types';
 
 
 export const mutations: MutationTree<PlayingState> = {
-  soundSet(state, soundFile: string) {
+  soundSet(state, sound: Sound) {
     if (state.audioObject) {
       state.audioObject.pause();
     }
-    state.audioObject = new Audio(`/sound-files/${soundFile}`);
-    state.file = soundFile;
+    state.audioObject = new Audio(`/sound-files/${sound.soundFile}`);
+    state.sound = sound;
     state.audioObject.loop = true;
     state.audioObject.play().then(_ => { state.playing = true; });
   },

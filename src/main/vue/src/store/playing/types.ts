@@ -1,5 +1,7 @@
+import { Sound } from '../categories/types';
+
 export interface PlayingState {
   playing: boolean;
-  file?: string;
+  sound?: Sound;
   audioObject?: HTMLAudioElement;
 }

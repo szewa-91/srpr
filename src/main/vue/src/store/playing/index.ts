@@ -9,7 +9,7 @@ const namespaced: boolean = true;
 
 const state = {
   playing: false,
-  file: undefined,
+  sound: undefined,
   audioObject: undefined,
 };
 export const playing: Module<PlayingState, RootState> = {

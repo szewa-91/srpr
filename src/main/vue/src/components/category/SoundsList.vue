@@ -1,14 +1,12 @@
 <template>
   <div>
     <h1>Dźwięki z kategorii {{ categoryName }}</h1>
-    Tu się dźwięki zaczynają
     <div
         v-for="s in sounds"
         v-bind:key="s.name"
     >{{ s.name }}
       <button v-on:click="() => onClick(s)">Play!</button>
     </div>
-    A tu się kończą
   </div>
 </template>
 
@@ -26,14 +24,14 @@
     private getSounds!: ((categoryName: string) => Sound[]);
 
     @Action('setSound', { namespace: 'playing' })
-    private setSound!: ((sound: string) => void);
+    private setSound!: ((sound: Sound) => void);
 
     public created(): void {
       this.sounds = this.getSounds(this.categoryName);
     }
 
     public onClick(sound: Sound): void {
-      this.setSound(sound.soundFile);
+      this.setSound(sound);
     }
   }
 </script>
