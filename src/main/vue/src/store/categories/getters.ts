@@ -1,9 +1,9 @@
 import { GetterTree } from 'vuex';
-import { SoundState } from './types';
+import { CategoriesState, Category } from './types';
 import { RootState } from '../types';
 
-export const getters: GetterTree<SoundState, RootState> = {
-  categories(state): any {
+export const getters: GetterTree<CategoriesState, RootState> = {
+  categories(state): Category[] | undefined {
     return state.categories;
   },
   getSounds(state): any {
@@ -14,9 +14,5 @@ export const getters: GetterTree<SoundState, RootState> = {
         return filteredCategory!.sounds || [];
       }
     };
-  },
-  nowPlaying(state): boolean {
-    const { playing } = state;
-    return playing;
   },
 };

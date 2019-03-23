@@ -16,7 +16,6 @@ export interface Sound {
     soundFile: string;
 }
 
-export interface SoundState {
+export interface CategoriesState {
     categories?: Category[];
-    playing: boolean;
 }

@@ -1,5 +1,7 @@
 <template>
-  <SoundsList v-if="$route.params.name" v-bind:categoryName="$route.params.name"/>
+  <div>
+    <SoundsList v-if="$route.params.name" v-bind:categoryName="$route.params.name"/>
+  </div>
 </template>
 
 <script lang="ts">
@@ -8,7 +10,7 @@
 
   @Component({
     components: {
-      SoundsList
+      SoundsList,
     },
   })
   export default class CategoryView extends Vue {

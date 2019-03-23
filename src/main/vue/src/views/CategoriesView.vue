@@ -1,7 +1,9 @@
 <template>
-  <div class="relax">
-    <h1>Tutaj piloci będą się relaksować. Arghhh!!!</h1>
-    <CategoriesList />
+  <div>
+    <div class="relax">
+      <h1>Tutaj piloci będą się relaksować. Arghhh!!!</h1>
+      <CategoriesList/>
+    </div>
   </div>
 </template>
 
@@ -11,7 +13,7 @@
 
   @Component({
     components: {
-      CategoriesList
+      CategoriesList,
     },
   })
   export default class CategoriesView extends Vue {
