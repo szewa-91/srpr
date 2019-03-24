@@ -1,5 +1,7 @@
 # SRPRarghhh
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/87242d35858a473fbe97d36524aeef94)](https://app.codacy.com/app/marcin91.szewczyk/srpr?utm_source=github.com&utm_medium=referral&utm_content=szewa-91/srpr&utm_campaign=Badge_Grade_Settings)
+
 ## Database
 To run the project, you need to install and run an SQL server. The most common (and advised) solution is MySQL 
 ([get from website](https://www.mysql.com/downloads/)) or download using your package manager.
