@@ -1,5 +1,6 @@
 module.exports = {
   moduleFileExtensions: [
+    "scss",
     "js",
     "jsx",
     "json",
@@ -19,7 +20,7 @@ module.exports = {
     "jest-serializer-vue"
   ],
   testMatch: [
-    "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
+    "**/tests/**/*.(ts|tsx)|**/tests/*.(ts|tsx)"
   ],
   testURL: "http://localhost/",
   globals: {
