@@ -1,5 +1,5 @@
 <template>
-  <div class="sound-content" v-on:click="onClick">
+  <div class="category-content" v-on:click="onClick">
     <img v-if="imgPath" :src="require(`@/${imgPath}`)" class="bg-img">
     <h1>{{ category.name }}</h1>
   </div>
@@ -22,7 +22,7 @@
 </script>
 
 <style lang="scss">
-  .sound-content {
+  .category-content {
     width: 32vw;
     height: 20vw;
     position: relative;

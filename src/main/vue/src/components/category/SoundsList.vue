@@ -38,7 +38,6 @@
 
 <style scoped>
   .sound-tiles {
-    display: flex;
-    flex-wrap: wrap;
+    position: relative;
   }
 </style>

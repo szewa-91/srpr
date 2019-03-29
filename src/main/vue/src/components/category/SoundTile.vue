@@ -1,5 +1,5 @@
 <template>
-  <div class="sound-content" v-on:click="onClick">
+  <div v-bind:class="fullScreen ? 'sound-content--full' : 'sound-content'" v-on:click="onClick">
     <img v-if="sound.icon" :src="require(`@/assets/images/${sound.icon}`)" class="bg-img">
     <h1>{{ sound.name }}</h1>
   </div>
@@ -21,15 +21,21 @@
     @Action('setSound', { namespace: 'playing' })
     private setSound!: ((sound: Sound) => void);
 
+    private fullScreen: boolean = false;
+
     public onClick(): void {
-      this.setSound(this.sound);
-      this.$router.push(`${this.categoryName}/${this.sound.name}`);
+      this.fullScreen = true;
+      setTimeout(() => {
+        this.setSound(this.sound);
+        this.$router.push(`${this.categoryName}/${this.sound.name}`);
+      }, 1000);
     }
   }
 
 </script>
 
 <style lang="scss">
+/*
   .sound-content {
     width: 32vw;
     height: 20vw;
@@ -38,11 +44,44 @@
     text-align: center;
     color: white;
     cursor: pointer;
+    transform: translate(-50%, -50%);
+    &--full {
+      width: 100vw;
+      height: 100vh;
+      background-size: cover;
+      z-index: 100;
+      transition-duration: 1000ms;
+      position: absolute;
+    }
+  }
+*/
+  div.sound-tiles img:nth-child(1) {
+    width: 32vw;
+    height: 20vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+  }
+  div.sound-tiles img:nth-child(2) {
+    width: 32vw;
+    height: 20vw;
+    position: absolute;
+    top: 32vw;
+    left: 20vw;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+
   }
 
   .bg-img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     position: absolute;
@@ -50,5 +89,7 @@
     opacity: .8;
     object-fit: cover;
     overflow: hidden;
+    background-size: cover;
   }
+
 </style>
