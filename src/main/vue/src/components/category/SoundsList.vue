@@ -7,7 +7,7 @@
           v-bind:key="s.name"
           v-bind:sound="s"
       />
-        <!--<button v-on:click="() => onClick(s)">Play!</button>-->
+      <!--<button v-on:click="() => onClick(s)">Play!</button>-->
     </div>
   </div>
 </template>
@@ -16,10 +16,10 @@
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import { Action, Getter } from 'vuex-class';
   import { Sound } from '@/store/categories/types';
-  import SoundTile from "@/components/category/SoundTile";
+  import SoundTile from '@/components/category/SoundTile.vue';
 
   @Component({
-    components: { SoundTile }
+    components: { SoundTile },
   })
   export default class SoundsList extends Vue {
     @Prop() private categoryName!: string;

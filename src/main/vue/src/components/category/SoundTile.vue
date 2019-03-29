@@ -8,7 +8,7 @@
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import { Sound } from '@/store/categories/types';
-  import { Action } from "vuex-class";
+  import { Action } from 'vuex-class';
 
   @Component
   export default class SoundTile extends Vue {
