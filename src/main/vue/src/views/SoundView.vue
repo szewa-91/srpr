@@ -1,7 +1,6 @@
 <template>
   <div>
-    <p>{{$route.params.categoryName}} {{$route.params.soundName}}</p>
-    <img v-if="imgFile" :src="require(`@/assets/images/${imgFile}`)" class="bg-img">
+    <img v-if="imgFile" :src="require(`@/assets/images/${imgFile}`)" class="sound-img">
   </div>
 </template>
 
@@ -9,7 +8,6 @@
   import { Component, Vue } from 'vue-property-decorator';
   import SoundsList from '@/components/category/SoundsList.vue';
   import { Getter } from 'vuex-class';
-  import { Sound } from '@/store/categories/types';
 
   @Component({
     components: {
@@ -27,9 +25,16 @@
       this.imgFile = this.getSound(
           this.$router.currentRoute.params.categoryName,
           this.$router.currentRoute.params.soundName,
-        ).icon;
+      ).icon;
     }
 
   }
 
 </script>
+
+<style lang="scss">
+  .sound-img {
+    width: 100%;
+    height: auto;
+  }
+</style>
