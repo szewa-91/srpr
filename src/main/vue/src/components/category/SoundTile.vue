@@ -24,7 +24,6 @@
     public onClick(): void {
       this.setSound(this.sound);
       this.$router.push(`${this.categoryName}/${this.sound.name}`);
-
     }
   }
 

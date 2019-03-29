@@ -10,9 +10,25 @@ export const getters: GetterTree<CategoriesState, RootState> = {
     return (categoryName: string) => {
       const { categories } = state;
       if (categories) {
-        const filteredCategory = categories.find(category => category.name === categoryName);
-        return filteredCategory!.sounds || [];
+        return getSoundsByCategory(categories, categoryName);
       }
+      return [];
     };
   },
+  getSound(state): any {
+    return (categoryName: string, soundName: string) => {
+      const { categories } = state;
+      if (categories) {
+        const sounds = getSoundsByCategory(categories, categoryName);
+        const filteredSound = sounds.find(sound => sound.name === soundName);
+        return filteredSound;
+      }
+      return undefined;
+    };
+  },
+};
+
+const getSoundsByCategory = (categories: Category[], categoryName: string) => {
+  const filteredCategory = categories.find(category => category.name === categoryName);
+  return filteredCategory!.sounds || [];
 };
