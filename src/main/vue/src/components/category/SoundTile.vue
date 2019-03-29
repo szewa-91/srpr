@@ -20,6 +20,8 @@
 
     public onClick(): void {
       this.setSound(this.sound);
+      this.$router.push(`sound/${this.sound.name}`);
+
     }
   }
 

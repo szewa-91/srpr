@@ -16,7 +16,7 @@
     @Prop() private imgPath!: string;
 
     public onClick() {
-      this.$router.push(`category/${this.category.name}`);
+      this.$router.push(`${this.category.name}`);
     }
   }
 </script>

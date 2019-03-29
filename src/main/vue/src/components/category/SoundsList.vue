@@ -7,7 +7,6 @@
           v-bind:key="s.name"
           v-bind:sound="s"
       />
-      <!--<button v-on:click="() => onClick(s)">Play!</button>-->
     </div>
   </div>
 </template>
@@ -33,10 +32,6 @@
 
     public created(): void {
       this.sounds = this.getSounds(this.categoryName);
-    }
-
-    public onClick(sound: Sound): void {
-      this.setSound(sound);
     }
   }
 </script>
