@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>{{$route.params.categoryName}} {{$route.params.soundName}}</p>
-    <!--<SoundsList v-if="$route.params.name" v-bind:categoryName="$route.params.name"/>-->
+    <!-- <img v-if="imgPath" :src="require(`@/${imgPath}`)" class="bg-img"> -->
   </div>
 </template>
 

@@ -5,6 +5,7 @@
           v-for="s in sounds"
           v-bind:key="s.name"
           v-bind:sound="s"
+          v-bind:categoryName="categoryName"
       />
     </div>
   </div>

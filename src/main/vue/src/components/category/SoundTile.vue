@@ -15,12 +15,15 @@
     @Prop()
     private sound!: Sound;
 
+    @Prop()
+    private categoryName!: string;
+
     @Action('setSound', { namespace: 'playing' })
     private setSound!: ((sound: Sound) => void);
 
     public onClick(): void {
       this.setSound(this.sound);
-      this.$router.push(`sound/${this.sound.name}`);
+      this.$router.push(`${this.categoryName}/${this.sound.name}`);
 
     }
   }
