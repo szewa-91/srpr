@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Dźwięki z kategorii {{ categoryName }}</h1>
     <div class="sound-tiles">
       <SoundTile
           v-for="s in sounds"

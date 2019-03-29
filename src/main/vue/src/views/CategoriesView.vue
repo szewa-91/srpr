@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="relax">
-      <h1>Tutaj piloci będą się relaksować. Arghhh!!!</h1>
       <CategoriesList/>
     </div>
   </div>
