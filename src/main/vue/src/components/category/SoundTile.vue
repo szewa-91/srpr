@@ -1,24 +1,28 @@
 <template>
   <div class="sound-content" v-on:click="onClick">
-    <img v-if="imgPath" :src="require(`@/${imgPath}`)" class="bg-img">
-    <h1>{{ category.name }}</h1>
+    <img v-if="sound.icon" :src="require(`@/assets/images/${sound.icon}`)" class="bg-img">
+    <h1>{{ sound.name }}</h1>
   </div>
 </template>
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
-  import { Category } from '@/store/categories/types';
+  import { Sound } from '@/store/categories/types';
+  import { Action } from "vuex-class";
 
   @Component
-  export default class CategoryTile extends Vue {
+  export default class SoundTile extends Vue {
+    @Prop()
+    private sound!: Sound;
 
-    @Prop() private category!: Category;
-    @Prop() private imgPath!: string;
+    @Action('setSound', { namespace: 'playing' })
+    private setSound!: ((sound: Sound) => void);
 
-    public onClick() {
-      this.$router.push(`category/${this.category.name}`);
+    public onClick(): void {
+      this.setSound(this.sound);
     }
   }
+
 </script>
 
 <style lang="scss">
@@ -31,6 +35,7 @@
     color: white;
     cursor: pointer;
   }
+
   .bg-img {
     max-width: 100%;
     max-height: 100%;

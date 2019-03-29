@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/be1ccbe43f0c47e999207a6ff0617217)](https://www.codacy.com/app/marcin91.szewczyk/srpr?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=szewa-91/srpr&amp;utm_campaign=Badge_Grade)
+
 # srprair
 
 ## Project setup
