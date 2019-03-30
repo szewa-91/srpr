@@ -1,11 +1,13 @@
 <template>
   <div>
-    <h1>Dźwięki z kategorii {{ categoryName }}</h1>
-    <div
-        v-for="s in sounds"
-        v-bind:key="s.name"
-    >{{ s.name }}
-      <button v-on:click="() => onClick(s)">Play!</button>
+    <div class="sound-tiles">
+      <SoundTile
+          v-for="(s, index) in sounds"
+          v-bind:key="s.name"
+          v-bind:sound="s"
+          v-bind:categoryName="categoryName"
+          v-bind:index="index"
+      />
     </div>
   </div>
 </template>
@@ -14,8 +16,11 @@
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import { Action, Getter } from 'vuex-class';
   import { Sound } from '@/store/categories/types';
+  import SoundTile from '@/components/category/SoundTile.vue';
 
-  @Component
+  @Component({
+    components: { SoundTile },
+  })
   export default class SoundsList extends Vue {
     @Prop() private categoryName!: string;
     private sounds!: Sound[];
@@ -29,13 +34,11 @@
     public created(): void {
       this.sounds = this.getSounds(this.categoryName);
     }
-
-    public onClick(sound: Sound): void {
-      this.setSound(sound);
-    }
   }
 </script>
 
 <style scoped>
-
+  .sound-tiles {
+    /* position: relative; */
+  }
 </style>

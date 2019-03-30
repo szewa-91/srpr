@@ -1,6 +1,5 @@
 <template>
   <div class="relax-content">
-    <h3>Kategorie</h3>
     <div class="sound-tiles">
       <CategoryTile
           v-for="c in categories"

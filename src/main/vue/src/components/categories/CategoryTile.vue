@@ -1,6 +1,6 @@
 <template>
-  <div class="sound-content" v-on:click="onClick">
-    <img :src="require(`@/${imgPath}`)" class="bg-img">
+  <div class="category-content" v-on:click="onClick">
+    <img v-if="imgPath" :src="require(`@/${imgPath}`)" class="bg-img">
     <h1>{{ category.name }}</h1>
   </div>
 </template>
@@ -16,14 +16,14 @@
     @Prop() private imgPath!: string;
 
     public onClick() {
-      this.$router.push(`category/${this.category.name}`);
+      this.$router.push(`${this.category.name}`);
     }
   }
 </script>
 
 <style lang="scss">
-  .sound-content {
-    width: 32vw;
+  .category-content {
+    width: 33.1vw;
     height: 20vw;
     position: relative;
     vertical-align: middle;
