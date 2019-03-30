@@ -2,10 +2,11 @@
   <div>
     <div class="sound-tiles">
       <SoundTile
-          v-for="s in sounds"
+          v-for="(s, index) in sounds"
           v-bind:key="s.name"
           v-bind:sound="s"
           v-bind:categoryName="categoryName"
+          v-bind:index="index"
       />
     </div>
   </div>
@@ -38,6 +39,6 @@
 
 <style scoped>
   .sound-tiles {
-    position: relative;
+    /* position: relative; */
   }
 </style>

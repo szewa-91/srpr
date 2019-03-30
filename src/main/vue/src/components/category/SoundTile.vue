@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="fullScreen ? 'sound-content--full' : 'sound-content'" v-on:click="onClick">
+  <div v-bind:class="fullScreen? 'sound-content--full' : `sound-content--${index}`" v-on:click="onClick">
     <img v-if="sound.icon" :src="require(`@/assets/images/${sound.icon}`)" class="bg-img">
     <h1>{{ sound.name }}</h1>
   </div>
@@ -18,10 +18,14 @@
     @Prop()
     private categoryName!: string;
 
+    @Prop()
+    private index!: number;
+
     @Action('setSound', { namespace: 'playing' })
     private setSound!: ((sound: Sound) => void);
 
     private fullScreen: boolean = false;
+    private name: string = '--full';
 
     public onClick(): void {
       this.fullScreen = true;
@@ -35,48 +39,71 @@
 </script>
 
 <style lang="scss">
-/*
+
   .sound-content {
     width: 32vw;
     height: 20vw;
-    position: relative;
+    position: absolute;
     vertical-align: middle;
     text-align: center;
     color: white;
     cursor: pointer;
-    transform: translate(-50%, -50%);
+    &--0 {
+      @extend .sound-content;
+      left: 0;
+      top: 0;
+    }
+    &--1 {
+      @extend .sound-content;
+      left:300px;
+      top: 0;
+    }
+    &--2 {
+      @extend .sound-content;
+      left: 600px;
+      top: 0;
+    }
+    &--3 {
+      @extend .sound-content;
+      left:700px;
+      top:500px;
+    }
+    &--4 {
+      @extend .sound-content;
+      left:700px;
+      top:500px;
+    }
+    &--5 {
+      @extend .sound-content;
+      left:700px;
+      top:500px;
+    }
+    &--6 {
+      @extend .sound-content;
+      left:700px;
+      top:500px;
+    }
+    &--7 {
+      @extend .sound-content;
+      left:700px;
+      top:500px;
+    }
+    &--8 {
+      @extend .sound-content;
+      left:700px;
+      top:500px;
+    }
+
     &--full {
+      @extend .sound-content;
       width: 100vw;
       height: 100vh;
-      background-size: cover;
+      left: 0;
+      top: 0;
+      // background-size: cover;
       z-index: 100;
       transition-duration: 1000ms;
-      position: absolute;
     }
-  }
-*/
-  div.sound-tiles img:nth-child(1) {
-    width: 32vw;
-    height: 20vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    vertical-align: middle;
-    text-align: center;
-    color: white;
-    cursor: pointer;
-  }
-  div.sound-tiles img:nth-child(2) {
-    width: 32vw;
-    height: 20vw;
-    position: absolute;
-    top: 32vw;
-    left: 20vw;
-    vertical-align: middle;
-    text-align: center;
-    color: white;
-    cursor: pointer;
-
   }
 
   .bg-img {
@@ -84,7 +111,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    position: absolute;
+    position: relative;
     z-index: -1;
     opacity: .8;
     object-fit: cover;
