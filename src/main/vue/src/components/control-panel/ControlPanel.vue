@@ -42,6 +42,7 @@
   bottom: 0;
   box-shadow: 0 0 10px 0 #888888;
   background: white;
+  z-index: 1000;
 }
 #display {
   display: flex;

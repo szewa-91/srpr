@@ -25,14 +25,13 @@
     private setSound!: ((sound: Sound) => void);
 
     private fullScreen: boolean = false;
-    private name: string = '--full';
 
     public onClick(): void {
       this.fullScreen = true;
       setTimeout(() => {
         this.setSound(this.sound);
         this.$router.push(`${this.categoryName}/${this.sound.name}`);
-      }, 1000);
+      }, 333);
     }
   }
 
@@ -40,9 +39,12 @@
 
 <style lang="scss">
 
+  $width: 33.13vw;
+  $height: 20vw;
+
   .sound-content {
-    width: 32vw;
-    height: 20vw;
+    width: $width;
+    height: $height;
     position: absolute;
     vertical-align: middle;
     text-align: center;
@@ -55,43 +57,43 @@
     }
     &--1 {
       @extend .sound-content;
-      left:300px;
+      left: $width;
       top: 0;
     }
     &--2 {
       @extend .sound-content;
-      left: 600px;
+      left: 2*$width;
       top: 0;
     }
     &--3 {
       @extend .sound-content;
-      left:700px;
-      top:500px;
+      left: 0;
+      top: $height;
     }
     &--4 {
       @extend .sound-content;
-      left:700px;
-      top:500px;
+      left: $width;
+      top: $height;
     }
     &--5 {
       @extend .sound-content;
-      left:700px;
-      top:500px;
+      left: 2*$width;
+      top: $height;
     }
     &--6 {
       @extend .sound-content;
-      left:700px;
-      top:500px;
+      left: 0;
+      top: 2*$height;
     }
     &--7 {
       @extend .sound-content;
-      left:700px;
-      top:500px;
+      left: $width;
+      top: 2*$height;
     }
     &--8 {
       @extend .sound-content;
-      left:700px;
-      top:500px;
+      left: 2*$width;
+      top: 2*$height;
     }
 
     &--full {
@@ -100,9 +102,9 @@
       height: 100vh;
       left: 0;
       top: 0;
-      // background-size: cover;
+      background-size: cover;
       z-index: 100;
-      transition-duration: 1000ms;
+      transition-duration: 333ms;
     }
   }
 
@@ -113,7 +115,6 @@
     left: 0;
     position: relative;
     z-index: -1;
-    opacity: .8;
     object-fit: cover;
     overflow: hidden;
     background-size: cover;

@@ -23,7 +23,7 @@
 
 <style lang="scss">
   .category-content {
-    width: 32vw;
+    width: 33.1vw;
     height: 20vw;
     position: relative;
     vertical-align: middle;
